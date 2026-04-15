@@ -646,6 +646,14 @@ nav {
   opacity: 1;
 }
 
+.partner-logo img {
+  max-width: 120px;
+  max-height: 50px;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+}
+
 @keyframes scroll-partners {
   0% { transform: translateX(0); }
   100% { transform: translateX(-50%); }

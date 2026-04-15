@@ -133,9 +133,11 @@ function populatePartners(partners) {
     const track = document.querySelector('.partners-track');
     if (!track) return;
 
-    // Build logos HTML
+    // Build logos HTML with images
     const logosHTML = partners.logos.map(p =>
-        `<div class="partner-logo">${p.name}</div>`
+        `<div class="partner-logo">
+            <img src="${p.logo}" alt="${p.name}" loading="lazy">
+        </div>`
     ).join('');
 
     // Double for infinite scroll effect

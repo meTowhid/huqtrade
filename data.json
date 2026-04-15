@@ -69,14 +69,11 @@
     "badge": "Trusted By Industry Leaders",
     "title": "Our Global Partners",
     "logos": [
-      { "name": "Maersk", "placeholder": true },
-      { "name": "DHL", "placeholder": true },
-      { "name": "CMA CGM", "placeholder": true },
-      { "name": "Hapag-Lloyd", "placeholder": true },
-      { "name": "MSC", "placeholder": true },
-      { "name": "COSCO", "placeholder": true },
-      { "name": "Evergreen", "placeholder": true },
-      { "name": "Yang Ming", "placeholder": true }
+      { "name": "DHL", "logo": "assets/partners/dhl.png" },
+      { "name": "FedEx", "logo": "assets/partners/fedex.png" },
+      { "name": "Aramex", "logo": "assets/partners/aramex.png" },
+      { "name": "SMSA Express", "logo": "assets/partners/smsa-express.png" },
+      { "name": "SF Express", "logo": "assets/partners/sf-express.png" }
     ]
   },
   "process": {
