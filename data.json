@@ -120,6 +120,67 @@
       }
     ]
   },
+  "testimonials": {
+    "badge": "Client Feedback",
+    "title": "What Our Clients Say",
+    "items": [
+      {
+        "name": "Sabiha Monnaf",
+        "rating": 5,
+        "text": "Highly satisfied with their services. Very professional. We send our parcel to the USA on a regular basis and our clients always get the items in the given time."
+      },
+      {
+        "name": "Mihadul Islam",
+        "rating": 5,
+        "text": "I sent a product to USA by Huq Trade. My brother got the parcel in 4 days. It was so important parcel and necessary to reach on time. Thank you so much!"
+      },
+      {
+        "name": "Hasnain Hossain Sabbir",
+        "rating": 5,
+        "text": "Service was good. Received my parcel in time. Highly recommend."
+      },
+      {
+        "name": "Ruhan Imtiaz",
+        "rating": 5,
+        "text": "Trusted and amazing customer service! They're true to their words. Thanks to Huq Trade."
+      },
+      {
+        "name": "Anila Tanjeen",
+        "rating": 5,
+        "text": "Got my parcel in time without any damage or any other issues. Very happy with their service. They were very helpful, co-operative and well-mannered."
+      },
+      {
+        "name": "Ahamed Maruf",
+        "rating": 5,
+        "text": "Their service is impressive, fully satisfied! I just got my parcel in 4 days. Highly recommended."
+      },
+      {
+        "name": "Nusrat Eaysmin",
+        "rating": 5,
+        "text": "Thanks, perfect time delivered! A huge shout-out for this company. They engaged throughout the whole time for my parcel and made the process smoother. So thanks a lot!"
+      },
+      {
+        "name": "Raidah Binte Tabassum",
+        "rating": 5,
+        "text": "Sent a parcel for my mom on Eid. They are extremely cordial. In this Eid rush they sent the parcel within 4 days from Bangladesh to UK. Really happy with their service."
+      },
+      {
+        "name": "Saidur Rahman",
+        "rating": 5,
+        "text": "Really amazed with their behaviour & service. Got the best deal & delivery as per the commitment. Recommended!"
+      },
+      {
+        "name": "MD Salauddin",
+        "rating": 5,
+        "text": "I have taken service from them more than 10 times. They are good. Service is awesome and the best part is their cooperation."
+      },
+      {
+        "name": "Nasrin Sultana",
+        "rating": 5,
+        "text": "I was so worried about my parcel then within 5 days Huq Trade made my happiness. Their service is amazing!"
+      }
+    ]
+  },
   "contact": {
     "title": "Request a Consultation",
     "subtitle": "Expert guidance for your global trade operations. Specializing in Door-to-Door logistics.",

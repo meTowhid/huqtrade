@@ -50,6 +50,9 @@ async function loadData() {
         // Hubs
         populateHubs(siteData.hubs);
 
+        // Testimonials
+        populateTestimonials(siteData.testimonials);
+
         // Contact
         populateContact(siteData.contact);
 
@@ -133,12 +136,13 @@ function populatePartners(partners) {
     const track = document.querySelector('.partners-track');
     if (!track) return;
 
-    // Build logos HTML with images
-    const logosHTML = partners.logos.map(p =>
-        `<div class="partner-logo">
-            <img src="${p.logo}" alt="${p.name}" loading="lazy">
-        </div>`
-    ).join('');
+    // Build logos HTML — support both image logos and text-only
+    const logosHTML = partners.logos.map(p => {
+        if (p.logo) {
+            return `<div class="partner-logo"><img src="${p.logo}" alt="${p.name}" loading="lazy"></div>`;
+        }
+        return `<div class="partner-logo">${p.name}</div>`;
+    }).join('');
 
     // Double for infinite scroll effect
     track.innerHTML = logosHTML + logosHTML;
@@ -210,6 +214,144 @@ function populateContact(contact) {
 
     const messageInput = document.querySelector('#message');
     if (messageInput) messageInput.placeholder = contact.placeholders.message;
+}
+
+function populateTestimonials(testimonials) {
+    if (!testimonials) return;
+
+    setTextContent('testimonials-badge', testimonials.badge);
+    setTextContent('testimonials-title', testimonials.title);
+
+    const track = document.querySelector('.carousel-track');
+    const dotsContainer = document.querySelector('.carousel-dots');
+    if (!track) return;
+
+    // Build testimonial cards
+    track.innerHTML = testimonials.items.map(item => {
+        const initials = item.name.split(' ').map(n => n[0]).join('').substring(0, 2);
+        const stars = Array.from({ length: 5 }, (_, i) =>
+            `<span class="material-symbols-outlined testimonial-star ${i < item.rating ? '' : 'empty'}">${i < item.rating ? 'star' : 'star'}</span>`
+        ).join('');
+
+        return `
+            <div class="testimonial-card">
+                <div class="testimonial-avatar">${initials}</div>
+                <div class="testimonial-rating">${stars}</div>
+                <p class="testimonial-text">${item.text}</p>
+                <div class="testimonial-name">${item.name}</div>
+            </div>
+        `;
+    }).join('');
+
+    // Setup carousel
+    setupTestimonialsCarousel(testimonials.items.length);
+}
+
+function setupTestimonialsCarousel(totalItems) {
+    const track = document.querySelector('.carousel-track');
+    const viewport = document.querySelector('.carousel-viewport');
+    const prevBtn = document.querySelector('.carousel-prev');
+    const nextBtn = document.querySelector('.carousel-next');
+    const dotsContainer = document.querySelector('.carousel-dots');
+
+    if (!track || !viewport) return;
+
+    let currentIndex = 0;
+    let itemsPerView = getItemsPerView();
+    let totalPages = Math.ceil(totalItems / itemsPerView);
+    let autoplayInterval;
+
+    // Build dots
+    function buildDots() {
+        if (!dotsContainer) return;
+        totalPages = Math.ceil(totalItems / itemsPerView);
+        dotsContainer.innerHTML = Array.from({ length: totalPages }, (_, i) =>
+            `<button class="carousel-dot ${i === 0 ? 'active' : ''}" data-index="${i}" aria-label="Go to slide ${i + 1}"></button>`
+        ).join('');
+
+        dotsContainer.querySelectorAll('.carousel-dot').forEach(dot => {
+            dot.addEventListener('click', () => {
+                goToSlide(parseInt(dot.dataset.index));
+                resetAutoplay();
+            });
+        });
+    }
+
+    function getItemsPerView() {
+        if (window.innerWidth <= 768) return 1;
+        return 2;
+    }
+
+    function goToSlide(index) {
+        itemsPerView = getItemsPerView();
+        totalPages = Math.ceil(totalItems / itemsPerView);
+
+        if (index < 0) index = totalPages - 1;
+        if (index >= totalPages) index = 0;
+
+        currentIndex = index;
+
+        const card = track.querySelector('.testimonial-card');
+        if (!card) return;
+
+        const gap = 24; // 1.5rem
+        const cardWidth = card.offsetWidth + gap;
+        const offset = currentIndex * itemsPerView * cardWidth;
+
+        track.style.transform = `translateX(-${offset}px)`;
+
+        // Update dots
+        if (dotsContainer) {
+            dotsContainer.querySelectorAll('.carousel-dot').forEach((dot, i) => {
+                dot.classList.toggle('active', i === currentIndex);
+            });
+        }
+    }
+
+    function resetAutoplay() {
+        clearInterval(autoplayInterval);
+        autoplayInterval = setInterval(() => goToSlide(currentIndex + 1), 4000);
+    }
+
+    // Event listeners
+    if (prevBtn) prevBtn.addEventListener('click', () => { goToSlide(currentIndex - 1); resetAutoplay(); });
+    if (nextBtn) nextBtn.addEventListener('click', () => { goToSlide(currentIndex + 1); resetAutoplay(); });
+
+    // Touch swipe support
+    let touchStartX = 0;
+    let touchEndX = 0;
+
+    viewport.addEventListener('touchstart', (e) => { touchStartX = e.changedTouches[0].screenX; }, { passive: true });
+    viewport.addEventListener('touchend', (e) => {
+        touchEndX = e.changedTouches[0].screenX;
+        const diff = touchStartX - touchEndX;
+        if (Math.abs(diff) > 50) {
+            if (diff > 0) goToSlide(currentIndex + 1);
+            else goToSlide(currentIndex - 1);
+            resetAutoplay();
+        }
+    });
+
+    // Pause on hover
+    const section = document.querySelector('.testimonials-section');
+    if (section) {
+        section.addEventListener('mouseenter', () => clearInterval(autoplayInterval));
+        section.addEventListener('mouseleave', () => resetAutoplay());
+    }
+
+    // Resize handler
+    window.addEventListener('resize', () => {
+        const newPerView = getItemsPerView();
+        if (newPerView !== itemsPerView) {
+            itemsPerView = newPerView;
+            buildDots();
+            goToSlide(0);
+        }
+    });
+
+    // Init
+    buildDots();
+    resetAutoplay();
 }
 
 function populateFooter(data) {
