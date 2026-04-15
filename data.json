@@ -1,0 +1,169 @@
+{
+  "company": {
+    "name": "Huq Trade International",
+    "tagline": "Global Logistics & Trading Solutions",
+    "logo": "assets/images/logo.png",
+    "address": "Nikunja-2, Dhaka, Bangladesh",
+    "copyright": "© 2026 Huq Trade International. Orchestrating Global Trade."
+  },
+  "navigation": [
+    { "label": "Services", "id": "services" },
+    { "label": "About", "id": "about" },
+    { "label": "Process", "id": "process" },
+    { "label": "Contact", "id": "contact" }
+  ],
+  "hero": {
+    "title": "Global Trade, Redefined with Transparency.",
+    "description": "Leading the way in Sea Freight, Air Freight, and Door-to-Door Logistics Solutions. Orchestrating the world's supply chains with architectural precision.",
+    "primaryBtn": "Get a Custom Quote",
+    "secondaryBtn": "Our Services",
+    "image": "assets/images/hero-bg.jpg"
+  },
+  "valueProps": [
+    {
+      "icon": "door_front",
+      "title": "Door-to-Door Excellence",
+      "description": "Our flagship service — seamless pickup to delivery across the globe. One call, complete logistics coverage from your doorstep.",
+      "featured": true
+    },
+    {
+      "icon": "visibility",
+      "title": "Absolute Transparency",
+      "description": "Real-time tracking and clear communication channels ensure you never lose sight of your cargo."
+    },
+    {
+      "icon": "settings_suggest",
+      "title": "Seamless Logistics",
+      "description": "End-to-end integration of shipping, warehousing, and customs for a frictionless experience."
+    }
+  ],
+  "services": {
+    "badge": "Our Expertise",
+    "title": "Logistics Solutions",
+    "description": "Customized strategies for diverse shipping needs, from urgent air freight to high-volume maritime transport.",
+    "items": [
+      {
+        "title": "Door-to-Door",
+        "description": "Our signature service — complete convenience from origin to destination with full tracking and dedicated support.",
+        "image": "assets/images/door-to-door.jpg",
+        "featured": true
+      },
+      {
+        "title": "Air Freight",
+        "description": "Rapid global transport for time-sensitive cargo.",
+        "image": "assets/images/air-freight.jpg"
+      },
+      {
+        "title": "Sea Freight",
+        "description": "Cost-effective solutions for large scale shipments.",
+        "image": "assets/images/sea-freight.jpg"
+      },
+      {
+        "title": "Product Sourcing",
+        "description": "Curated global supply chain partnerships.",
+        "image": "assets/images/product-sourcing.jpg"
+      }
+    ]
+  },
+  "partners": {
+    "badge": "Trusted By Industry Leaders",
+    "title": "Our Global Partners",
+    "logos": [
+      { "name": "Maersk", "placeholder": true },
+      { "name": "DHL", "placeholder": true },
+      { "name": "CMA CGM", "placeholder": true },
+      { "name": "Hapag-Lloyd", "placeholder": true },
+      { "name": "MSC", "placeholder": true },
+      { "name": "COSCO", "placeholder": true },
+      { "name": "Evergreen", "placeholder": true },
+      { "name": "Yang Ming", "placeholder": true }
+    ]
+  },
+  "process": {
+    "title": "The Huq Trade Journey",
+    "steps": [
+      {
+        "number": "01",
+        "label": "Consult",
+        "description": "Defining your logistics requirements and deadlines."
+      },
+      {
+        "number": "02",
+        "label": "Quote",
+        "description": "Competitive pricing with full transparency on fees."
+      },
+      {
+        "number": "03",
+        "label": "Ship",
+        "description": "Expert handling and documentation of cargo."
+      },
+      {
+        "number": "04",
+        "label": "Deliver",
+        "description": "Door-to-door final mile delivery to your specified destination."
+      }
+    ]
+  },
+  "hubs": {
+    "badge": "Global Footprint",
+    "title": "Strategic Hubs",
+    "image": "assets/images/office-building.jpg",
+    "items": [
+      {
+        "title": "Nikunja Office",
+        "address": "Commercial District Center, Block B, Nikunja-2, Dhaka.",
+        "tag": "Headquarters",
+        "icon": "corporate_fare"
+      },
+      {
+        "title": "Rampura Office",
+        "address": "Logistics Operations Hub, West Rampura, Dhaka.",
+        "tag": "Operations Center",
+        "icon": "local_shipping"
+      }
+    ]
+  },
+  "contact": {
+    "title": "Request a Consultation",
+    "subtitle": "Expert guidance for your global trade operations. Specializing in Door-to-Door logistics.",
+    "fields": {
+      "name": "Name",
+      "email": "Email",
+      "phone": "Phone Number",
+      "service": "Service Type",
+      "weight": "Consignment Weight (kg)",
+      "message": "Additional Details",
+      "submit": "Submit Request"
+    },
+    "placeholders": {
+      "name": "John Doe",
+      "email": "john@company.com",
+      "phone": "+880 1XXXXXXXXX",
+      "message": "Tell us about your shipment..."
+    },
+    "options": ["Door-to-Door (Recommended)", "Air Freight", "Sea Freight", "Product Sourcing"]
+  },
+  "telegram": {
+    "botToken": "YOUR_BOT_TOKEN_HERE",
+    "chatId": "YOUR_CHAT_ID_HERE"
+  },
+  "footer": {
+    "description": "Orchestrating global trade through precision, transparency, and architectural logistics design. Specializing in Door-to-Door delivery worldwide.",
+    "sections": [
+      {
+        "title": "Quick Links",
+        "links": [
+          { "label": "Privacy Policy", "url": "#" },
+          { "label": "Terms of Service", "url": "#" }
+        ]
+      },
+      {
+        "title": "Company",
+        "links": [
+          { "label": "Office Locations", "url": "#about" },
+          { "label": "Our Services", "url": "#services" }
+        ]
+      }
+    ]
+  }
+}
